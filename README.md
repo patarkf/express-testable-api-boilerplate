@@ -14,12 +14,6 @@ npm start
 By running these commands you will start the application and create an SQLite database
 in your app dir. Just open [http://localhost:4000](http://localhost:4000).
 
-## Starting App with Docker
-
-```
-docker build --tag express-server .
-docker run --name express-server --rm -p 4000:4000 -d express-server
-```
 
 ## Running Tests
 
