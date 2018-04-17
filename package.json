@@ -9,9 +9,10 @@
   },
   "scripts": {
     "start": "DEBUG=express-sequelize node ./bin/www",
-    "test": "nyc cross-env NODE_ENV=test mocha test/**/*.test.js",
+    "test": "cross-env NODE_ENV=test mocha test/**/*.test.js",
+    "cover": "nyc npm test",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "lint": "eslint --fix .",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "db-migrate": "sequelize db:migrate",
     "migrate-and-start": "npm run db-migrate && npm start"
   },
