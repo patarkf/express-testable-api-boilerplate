@@ -1,5 +1,7 @@
 # Testable Node.js API Express Example
 
+[![Coverage Status](https://coveralls.io/repos/github/patarkf/express-testable-api-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/patarkf/express-testable-api-boilerplate?branch=master) [![Build Status](https://travis-ci.org/patarkf/express-testable-api-boilerplate.svg?branch=master)](https://travis-ci.org/patarkf/express-testable-api-boilerplate.svg?branch=master)
+
 This repository demonstrates the usage of Sequelize within an [Express](https://expressjs.com) application.
 The implemented app is a simple beer registration tool.
 
