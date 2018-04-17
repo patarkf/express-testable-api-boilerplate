@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+const app = require('../app');
+const debug = require('debug')('express-sequelize');
+const http = require('http');
+const models = require('../models');
+
+app.set('port', process.env.PORT || 4000);
+
+const server = app.listen(app.get('port'), () => {
+  debug(`Express running → PORT ${server.address().port}`);
+});

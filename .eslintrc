@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "airbnb-base"
+  ],
+  "plugins": [
+      "import"
+  ],
+  "rules": {
+    "no-param-reassign": "off"
+  },
+  "globals": {
+    "it": true,
+    "describe": true,
+    "expect": true,
+    "beforeEach": true,
+    "omit": true,
+    "before": true
+  }
+}

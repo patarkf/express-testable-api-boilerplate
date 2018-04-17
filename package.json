@@ -1,0 +1,43 @@
+{
+  "name": "express-api-boilerplate",
+  "version": "0.0.0",
+  "private": true,
+  "author": {
+    "name": "Patrick Ferreira",
+    "email": "paatrickferreira@gmail.com",
+    "url": "https://github.com/patarkf"
+  },
+  "scripts": {
+    "start": "DEBUG=express-sequelize node ./bin/www",
+    "test": "npm run test-unit && npm run test-integration",
+    "test-unit": "cross-env NODE_ENV=test mocha test/unit/*.test.js",
+    "test-integration": "cross-env NODE_ENV=test mocha test/integration/*.test.js --timeout 15000",
+    "lint": "eslint --fix .",
+    "db-migrate": "sequelize db:migrate",
+    "migrate-and-start": "npm run db-migrate && npm start"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "debug": "^3.1.0",
+    "express": "^4.16.2",
+    "lodash.omit": "^4.5.0",
+    "morgan": "^1.7.0",
+    "mysql": "^2.15.0",
+    "sequelize": "^4.37.6",
+    "sequelize-cli": "^4.0.0",
+    "sqlite3": "^4.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^5.1.4",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "expect.js": "^0.3.1",
+    "husky": "^0.14.3",
+    "mocha": "^5.1.0",
+    "supertest": "^3.0.0"
+  }
+}
