@@ -19,24 +19,20 @@ const notFound = (req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
-};
+}
 
 /**
- * Detailed error message with stack-trace.
+ * Detailed error message with stack-trace or not depending on env.
  *
  * @param {*} err
  * @param {*} req
  * @param {*} res
  */
-const displayErrors = (err, req, res) => {
-  const errorDetails = {
-    stackHighlighted: err.stack.replace(/[a-z_-\d]+.js:\d+:\d+/gi, '<mark>$&</mark>'),
-  };
-
-  res.status(err.status || 500).send({
+const displayErrors = (err, req, res, next) => {
+  res.status(err.status || 500);
+  res.send({
     message: err.message,
-    status: err.status,
-    error: (process.env.NODE_ENV === 'development') ? errorDetails : {},
+    error: (process.env.NODE_ENV === 'development') ? err : {}
   });
 };
 
