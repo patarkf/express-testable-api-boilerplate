@@ -8,6 +8,7 @@ const { catchErrors } = require('../handlers/errorHandler');
 // Beer categories
 router.get('/beer-categories', catchErrors(beerCategoryController.list));
 router.post('/beer-categories', catchErrors(beerCategoryController.create));
+router.get('/beer-categories/:id', catchErrors(beerCategoryController.get));
 router.put('/beer-categories/:id', catchErrors(beerCategoryController.update));
 router.delete('/beer-categories/:id', catchErrors(beerCategoryController.destroy));
 
