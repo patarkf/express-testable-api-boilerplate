@@ -14,6 +14,7 @@ router.delete('/beer-categories/:id', catchErrors(beerCategoryController.destroy
 // Beers
 router.get('/beers', catchErrors(beerController.list));
 router.post('/beers', catchErrors(beerController.create));
+router.get('/beers/:id', catchErrors(beerController.get));
 router.put('/beers/:id', catchErrors(beerController.update));
 router.delete('/beers/:id', catchErrors(beerController.destroy));
 

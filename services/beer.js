@@ -12,8 +12,8 @@ const update = (id, beer) => Beer.update(beer, { where: { id } });
 
 module.exports = {
   create,
+  destroy,
   findAll,
   findById,
   update,
-  destroy,
 };
