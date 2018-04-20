@@ -34,7 +34,7 @@ describe('Routes: Beers', () => {
       .expect(/johndoe beer/);
   });
 
-  it('GET /beers/{id}', async () => {
+  it('GET /beers/:id', async () => {
     const beerCategory = await models.BeerCategory.create({ name: 'johndoe beer category' });
     const beer = await models.Beer.create({ name: 'johndoe beer', beer_category_id: beerCategory.id });
 
@@ -44,7 +44,7 @@ describe('Routes: Beers', () => {
       .expect(/johndoe beer/);
   });
 
-  it('PUT /beers/{id}', async () => {
+  it('PUT /beers/:id', async () => {
     const beerCategory = await models.BeerCategory.create({ name: 'johndoe beer category' });
     const beer = await models.Beer.create({ name: 'johndoe beer', beer_category_id: beerCategory.id });
 
@@ -55,7 +55,7 @@ describe('Routes: Beers', () => {
       .expect(/johndoe edited beer/);
   });
 
-  it('DELETE /beers/{id}', async () => {
+  it('DELETE /beers/:id', async () => {
     const beerCategory = await models.BeerCategory.create({ name: 'johndoe beer category' });
     const beer = await models.Beer.create({ name: 'johndoe beer', beer_category_id: beerCategory.id });
 
