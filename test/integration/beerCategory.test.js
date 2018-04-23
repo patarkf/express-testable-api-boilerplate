@@ -1,12 +1,11 @@
 const app = require('../../app');
-const Bluebird = require('bluebird');
 const request = require('supertest');
 const models = require('../../models');
 
 describe('Routes: Beer categories', () => {
   before(() => models.sequelize.sync());
 
-  beforeEach(() => Bluebird.all([
+  beforeEach(() => Promise.all([
     models.BeerCategory.destroy({
       truncate: true,
     }),
