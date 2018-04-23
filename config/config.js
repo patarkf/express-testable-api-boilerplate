@@ -6,6 +6,7 @@ module.exports = {
   test: {
     dialect: 'sqlite',
     storage: ':memory:',
+    logging: false,
   },
   production: {
     username: process.env.MYSQL_USER,
