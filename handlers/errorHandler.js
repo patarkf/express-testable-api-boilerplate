@@ -19,7 +19,21 @@ const notFound = (req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
-}
+};
+
+/**
+ * Simple Sequelize validation errors handler.
+ *
+ * @param {*} err
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
+const validationErrors = (err, req, res, next) => {
+  if (err.errors) return res.status(400).send(err);
+
+  return next(err);
+};
 
 /**
  * Detailed error message with stack-trace or not depending on env.
@@ -28,16 +42,17 @@ const notFound = (req, res, next) => {
  * @param {*} req
  * @param {*} res
  */
-const displayErrors = (err, req, res, next) => {
+const displayErrors = (err, req, res) => {
   res.status(err.status || 500);
   res.send({
     message: err.message,
-    error: (process.env.NODE_ENV === 'development') ? err : {}
+    error: (process.env.NODE_ENV === 'development') ? err : {},
   });
 };
 
 module.exports = {
   catchErrors,
   notFound,
+  validationErrors,
   displayErrors,
 };

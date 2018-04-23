@@ -18,6 +18,7 @@ app.use(cookieParser());
 app.use('/', routes);
 
 app.use(errorHandlers.notFound);
+app.use(errorHandlers.validationErrors);
 app.use(errorHandlers.displayErrors);
 
 module.exports = app;
