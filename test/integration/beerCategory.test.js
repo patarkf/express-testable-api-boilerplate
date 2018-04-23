@@ -29,7 +29,16 @@ describe('Routes: Beer categories', () => {
       .expect(/johndoe beer category/);
   });
 
-  it('PUT /beer-categories/{id}', async () => {
+  it('GET /beer-categories/:id', async () => {
+    const beerCategory = await models.BeerCategory.create({ name: 'johndoe beer category' });
+
+    await request(app)
+      .get(`/beer-categories/${beerCategory.id}`)
+      .expect(200)
+      .expect(/johndoe beer category/);
+  });
+
+  it('PUT /beer-categories/:id', async () => {
     const beerCategory = await models.BeerCategory.create({ name: 'johndoe beer category' });
 
     await request(app)
@@ -39,7 +48,7 @@ describe('Routes: Beer categories', () => {
       .expect(/johndoe edited beer category/);
   });
 
-  it('DELETE /beer-categories/{id}', async () => {
+  it('DELETE /beer-categories/:id', async () => {
     const beerCategory = await models.BeerCategory.create({ name: 'johndoe beer category' });
 
     await request(app)

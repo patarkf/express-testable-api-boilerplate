@@ -12,8 +12,8 @@ const update = (id, beerCategory) => BeerCategory.update(beerCategory, { where: 
 
 module.exports = {
   create,
+  destroy,
   findAll,
   findById,
   update,
-  destroy,
 };

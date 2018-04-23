@@ -10,6 +10,11 @@ const list = async (req, res) => {
   res.status(200).json(beers);
 };
 
+const get = async (req, res) => {
+  const beer = await beerService.findById(req.params.id);
+  res.status(200).json(beer);
+};
+
 const update = async (req, res, next) => {
   const [affectedRows] = await beerService.update(req.params.id, req.body);
   if (!affectedRows) return next();
@@ -25,7 +30,8 @@ const destroy = async (req, res) => {
 
 module.exports = {
   create,
-  destroy,
-  update,
   list,
+  get,
+  update,
+  destroy,
 };
