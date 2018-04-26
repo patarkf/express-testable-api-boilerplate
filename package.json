@@ -9,9 +9,9 @@
   },
   "scripts": {
     "start": "DEBUG=express-sequelize node ./bin/www",
-    "test": "npm run test:unit && npm run test:integration",
-    "test:unit": "NODE_ENV=test _mocha test/unit/**/*.test.js",
-    "test:integration": "NODE_ENV=test _mocha test/integration/**/*.test.js",
+    "test": "npm run test:integration && npm run test:unit",
+    "test:unit": "NODE_ENV=test _mocha --opts tests/unit/mocha.opts tests/unit/**/*.test.js",
+    "test:integration": "NODE_ENV=test _mocha --opts tests/integration/mocha.opts tests/integration/**/*.test.js",
     "cover": "istanbul cover _mocha test/**/*.test.js",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "lint": "eslint --fix .",

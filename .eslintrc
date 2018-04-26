@@ -9,11 +9,14 @@
     "no-param-reassign": "off"
   },
   "globals": {
-    "it": true,
+    "after": true,
+    "before": true,
+    "beforeEach": true,
     "describe": true,
     "expect": true,
-    "beforeEach": true,
+    "it": true,
+    "models": true,
     "omit": true,
-    "before": true
+    "request": true
   }
 }
