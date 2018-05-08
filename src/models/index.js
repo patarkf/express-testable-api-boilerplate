@@ -5,7 +5,7 @@ const Sequelize = require('sequelize');
 const { Op } = Sequelize;
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require('../config/config.js')[env];
+const config = require('../../config/config.js')[env];
 
 // Sequelize has added operator aliases in order to make queries treatment safer
 config.operatorsAliases = Op;
