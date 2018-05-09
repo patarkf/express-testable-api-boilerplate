@@ -9,24 +9,16 @@ The implemented app is a simple beer registration tool.
 
 ```
 npm install
-node_modules/.bin/sequelize db:migrate
+npm run db:migrate
 npm start
 ```
 
 By running these commands you will start the application and create an SQLite database
 in your app dir. Just open [http://localhost:4000](http://localhost:4000).
 
-## Starting App with Docker
-
-```
-docker build --tag express-server .
-docker run --name express-server --rm -p 4000:4000 -d express-server
-```
-
 ## Running Tests
 
-Tests are most implemented with [Mocha](https://mochajs.org). But there is also a
-little bit of [Supertest](https://github.com/visionmedia/supertest) and [Chai](https://github.com/chaijs/chai) as well. 
+Tests are most implemented with [Mocha](https://mochajs.org), [Supertest](https://github.com/visionmedia/supertest) and [Expect.js](https://github.com/Automattic/expect.js?files=1).
 
 You can run all tests by `npm test`
 
