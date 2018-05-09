@@ -18,7 +18,7 @@ in your app dir. Just open [http://localhost:4000](http://localhost:4000).
 
 ## Running Tests
 
-Tests are most implemented with [Mocha](https://mochajs.org), [Supertest](https://github.com/visionmedia/supertest) and [Expect.js](https://github.com/Automattic/expect.js?files=1).
+Tests are most implemented with [Mocha](https://mochajs.org), [Supertest](https://github.com/visionmedia/supertest), and [Expect.js](https://github.com/Automattic/expect.js?files=1).
 
 You can run all tests by `npm test`
 
