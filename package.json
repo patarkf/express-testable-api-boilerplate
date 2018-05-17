@@ -10,9 +10,9 @@
   "scripts": {
     "start": "DEBUG=express-sequelize node ./src/bin/www",
     "test": "npm run test:integration && npm run test:unit",
-    "test:unit": "NODE_ENV=test _mocha --opts test/unit/mocha.opts test/unit/**/*.test.js",
-    "test:integration": "NODE_ENV=test _mocha --opts test/integration/mocha.opts test/integration/**/*.test.js",
-    "cover": "istanbul cover _mocha test/**/*.test.js",
+    "test:unit": "NODE_ENV=test _mocha --opts test/unit/mocha.opts test/unit",
+    "test:integration": "NODE_ENV=test _mocha --opts test/integration/mocha.opts test/integration",
+    "cover": "istanbul cover _mocha test",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "lint": "eslint --fix .",
     "db:migrate": "sequelize db:migrate"

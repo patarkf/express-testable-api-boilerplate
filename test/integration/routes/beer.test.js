@@ -2,12 +2,8 @@ describe('Routes: Beers', () => {
   before(() => models.sequelize.sync());
 
   beforeEach(() => Promise.all([
-    models.Beer.destroy({
-      truncate: true,
-    }),
-    models.BeerCategory.destroy({
-      truncate: true,
-    }),
+    models.Beer.destroy({ truncate: true }),
+    models.BeerCategory.destroy({ truncate: true }),
   ]));
 
   it('POST /beers', async () => {

@@ -1,11 +1,7 @@
 describe('Routes: Beer categories', () => {
   before(() => models.sequelize.sync());
 
-  beforeEach(() => Promise.all([
-    models.BeerCategory.destroy({
-      truncate: true,
-    }),
-  ]));
+  beforeEach(() =>  models.BeerCategory.destroy({ truncate: true }));
 
   it('POST /beer-categories', async () => {
     await request

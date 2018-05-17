@@ -1,3 +1,4 @@
 --require test/integration/helpers.js
 --reporter spec
 --slow 5000
+--recursive
