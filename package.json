@@ -12,10 +12,12 @@
     "start": "DEBUG=express-sequelize nodemon ./src/bin/www",
     "db:migrate": "sequelize db:migrate",
     "test": "jest",
-    "lint": "eslint --fix"
+    "lint": "eslint --fix",
+    "coveralls": "npm test && cat ./coverage/lcov.info | coveralls"
   },
   "jest": {
-    "verbose": true
+    "verbose": true,
+    "collectCoverage": true
   },
   "lint-staged": {
     "*.js": [
