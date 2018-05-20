@@ -6,7 +6,11 @@
       "import"
   ],
   "rules": {
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "no-unused-vars": [
+      "error", 
+      { "args": "none" }
+    ]
   },
   "globals": {
     "jest/globals": true, 

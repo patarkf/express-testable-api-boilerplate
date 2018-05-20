@@ -22,7 +22,7 @@ const notFound = (req, res, next) => {
 };
 
 /**
- * Simple Sequelize validation errors handler.
+ * Simple Express validator errors handler.
  *
  * @param {*} err
  * @param {*} req
@@ -30,7 +30,7 @@ const notFound = (req, res, next) => {
  * @param {*} next
  */
 const validationErrors = (err, req, res, next) => {
-  if (err.errors) return res.status(400).send(err);
+  if (err.mapped()) return res.status(422).send({ errors: err.mapped() });
 
   return next(err);
 };
@@ -42,11 +42,11 @@ const validationErrors = (err, req, res, next) => {
  * @param {*} req
  * @param {*} res
  */
-const displayErrors = (err, req, res) => {
+const displayErrors = (err, req, res, next) => {
   res.status(err.status || 500);
   res.send({
     message: err.message,
-    error: (process.env.NODE_ENV === 'development') ? err : {},
+    error: (process.env.NODE_ENV !== 'production') ? err : {},
   });
 };
 

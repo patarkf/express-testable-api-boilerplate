@@ -1,8 +1,13 @@
 const beerService = require('../services/beer');
+const { validationResult } = require('express-validator/check');
+const { matchedData } = require('express-validator/filter');
 
-const create = async (req, res) => {
-  const beer = await beerService.create(req.body);
-  res.status(201).json(beer);
+const create = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) return next(errors);
+
+  const beer = await beerService.create(matchedData(req));
+  return res.status(201).json(beer);
 };
 
 const list = async (req, res) => {
@@ -16,7 +21,10 @@ const get = async (req, res) => {
 };
 
 const update = async (req, res, next) => {
-  const [affectedRows] = await beerService.update(req.params.id, req.body);
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) return next(errors);
+
+  const [affectedRows] = await beerService.update(req.params.id, matchedData(req));
   if (!affectedRows) return next();
 
   const updatedBeer = await beerService.findById(req.params.id);
