@@ -1,9 +1,11 @@
+const models = require('../../../src/models');
+
 describe('models/index', () => {
-  it('returns the beer model', () => {
-    expect(models.Beer).to.be.ok();
+  test('returns the beer model', () => {
+    expect(models.Beer).toBeInstanceOf(Function);
   });
 
-  it('returns the beer category model', () => {
-    expect(models.BeerCategory).to.be.ok();
+  test('returns the beer category model', () => {
+    expect(models.BeerCategory).toBeInstanceOf(Function);
   });
 });

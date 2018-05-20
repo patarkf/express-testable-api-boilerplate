@@ -1,9 +1,13 @@
+const app = require('../../../src/app');
+const request = require('supertest')(app);
+const models = require('../../../src/models');
+
 describe('Routes: Beer categories', () => {
-  before(() => models.sequelize.sync());
+  beforeAll(() => models.sequelize.sync());
 
-  beforeEach(() =>  models.BeerCategory.destroy({ truncate: true }));
+  beforeEach(() => models.BeerCategory.destroy({ truncate: true }));
 
-  it('POST /beer-categories', async () => {
+  test('POST /beer-categories', async () => {
     await request
       .post('/beer-categories')
       .send({ name: 'johndoe beer category' })
@@ -11,7 +15,7 @@ describe('Routes: Beer categories', () => {
       .expect(/johndoe beer category/);
   });
 
-  it('GET /beer-categories', async () => {
+  test('GET /beer-categories', async () => {
     await models.BeerCategory.create({ name: 'johndoe beer category' });
 
     await request
@@ -20,7 +24,7 @@ describe('Routes: Beer categories', () => {
       .expect(/johndoe beer category/);
   });
 
-  it('GET /beer-categories/:id', async () => {
+  test('GET /beer-categories/:id', async () => {
     const beerCategory = await models.BeerCategory.create({ name: 'johndoe beer category' });
 
     await request
@@ -29,7 +33,7 @@ describe('Routes: Beer categories', () => {
       .expect(/johndoe beer category/);
   });
 
-  it('PUT /beer-categories/:id', async () => {
+  test('PUT /beer-categories/:id', async () => {
     const beerCategory = await models.BeerCategory.create({ name: 'johndoe beer category' });
 
     await request
@@ -39,7 +43,7 @@ describe('Routes: Beer categories', () => {
       .expect(/johndoe edited beer category/);
   });
 
-  it('DELETE /beer-categories/:id', async () => {
+  test('DELETE /beer-categories/:id', async () => {
     const beerCategory = await models.BeerCategory.create({ name: 'johndoe beer category' });
 
     await request

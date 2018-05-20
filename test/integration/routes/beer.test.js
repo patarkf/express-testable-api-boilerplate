@@ -1,12 +1,16 @@
+const app = require('../../../src/app');
+const request = require('supertest')(app);
+const models = require('../../../src/models');
+
 describe('Routes: Beers', () => {
-  before(() => models.sequelize.sync());
+  beforeAll(() => models.sequelize.sync());
 
   beforeEach(() => Promise.all([
     models.Beer.destroy({ truncate: true }),
     models.BeerCategory.destroy({ truncate: true }),
   ]));
 
-  it('POST /beers', async () => {
+  test('POST /beers', async () => {
     const beerCategory = await models.BeerCategory.create({ name: 'johndoe beer category' });
     await request
       .post('/beers')
@@ -15,7 +19,7 @@ describe('Routes: Beers', () => {
       .expect(/johndoe beer/);
   });
 
-  it('GET /beers', async () => {
+  test('GET /beers', async () => {
     const beerCategory = await models.BeerCategory.create({ name: 'johndoe beer category' });
     await models.Beer.create({ name: 'johndoe beer', beer_category_id: beerCategory.id });
 
@@ -25,7 +29,7 @@ describe('Routes: Beers', () => {
       .expect(/johndoe beer/);
   });
 
-  it('GET /beers/:id', async () => {
+  test('GET /beers/:id', async () => {
     const beerCategory = await models.BeerCategory.create({ name: 'johndoe beer category' });
     const beer = await models.Beer.create({ name: 'johndoe beer', beer_category_id: beerCategory.id });
 
@@ -35,7 +39,7 @@ describe('Routes: Beers', () => {
       .expect(/johndoe beer/);
   });
 
-  it('PUT /beers/:id', async () => {
+  test('PUT /beers/:id', async () => {
     const beerCategory = await models.BeerCategory.create({ name: 'johndoe beer category' });
     const beer = await models.Beer.create({ name: 'johndoe beer', beer_category_id: beerCategory.id });
 
@@ -46,7 +50,7 @@ describe('Routes: Beers', () => {
       .expect(/johndoe edited beer/);
   });
 
-  it('DELETE /beers/:id', async () => {
+  test('DELETE /beers/:id', async () => {
     const beerCategory = await models.BeerCategory.create({ name: 'johndoe beer category' });
     const beer = await models.Beer.create({ name: 'johndoe beer', beer_category_id: beerCategory.id });
 

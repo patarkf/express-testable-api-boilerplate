@@ -9,14 +9,11 @@
     "no-param-reassign": "off"
   },
   "globals": {
-    "after": true,
-    "before": true,
+    "jest/globals": true, 
+    "beforeAll": true,
     "beforeEach": true,
     "describe": true,
     "expect": true,
-    "it": true,
-    "models": true,
-    "omit": true,
-    "request": true
+    "test": true
   }
 }
