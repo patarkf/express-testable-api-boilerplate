@@ -17,7 +17,10 @@
   },
   "jest": {
     "verbose": true,
-    "collectCoverage": true
+    "collectCoverage": true,
+    "setupFiles": [
+      "./test/jest.setup.js"
+    ]
   },
   "lint-staged": {
     "*.js": [

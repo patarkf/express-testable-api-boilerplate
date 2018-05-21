@@ -1,7 +1,3 @@
-const app = require('../../../src/app');
-const request = require('supertest')(app);
-const models = require('../../../src/models');
-
 describe('Routes: Beers', () => {
   beforeAll(() => models.sequelize.sync());
 

@@ -18,6 +18,8 @@
     "beforeEach": true,
     "describe": true,
     "expect": true,
-    "test": true
+    "test": true,
+    "models": true,
+    "request": true
   }
 }
